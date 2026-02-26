@@ -18,9 +18,3 @@ jobs:
             exit 1
           fi
           echo "✅ OK"
-```
-
-Then go back to your `main` branch protection rule and add:
-```
-✅ Require status checks to pass before merging
-   → search and add: check-source-branch
