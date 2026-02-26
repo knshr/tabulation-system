@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Http\Controllers\Controller;
 use App\Enums\UserRole;
+use App\Http\Controllers\Controller;
 use App\Services\EventService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;

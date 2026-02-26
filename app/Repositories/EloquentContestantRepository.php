@@ -27,6 +27,7 @@ class EloquentContestantRepository implements ContestantRepositoryInterface
     {
         $contestant = Contestant::findOrFail($id);
         $contestant->update($data);
+
         return $contestant->fresh();
     }
 

@@ -27,6 +27,7 @@ class EloquentEventRepository implements EventRepositoryInterface
     {
         $event = Event::findOrFail($id);
         $event->update($data);
+
         return $event->fresh();
     }
 

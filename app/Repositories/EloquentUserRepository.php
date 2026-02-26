@@ -27,6 +27,7 @@ class EloquentUserRepository implements UserRepositoryInterface
     {
         $user = User::findOrFail($id);
         $user->update($data);
+
         return $user->fresh();
     }
 

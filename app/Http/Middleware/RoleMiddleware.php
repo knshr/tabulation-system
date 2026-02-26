@@ -13,13 +13,13 @@ class RoleMiddleware
     {
         $user = $request->user();
 
-        if (!$user) {
+        if (! $user) {
             abort(403, 'Unauthorized.');
         }
 
         $allowedRoles = array_map(fn ($role) => UserRole::tryFrom($role), $roles);
 
-        if (!in_array($user->role, $allowedRoles)) {
+        if (! in_array($user->role, $allowedRoles)) {
             abort(403, 'You do not have permission to access this resource.');
         }
 

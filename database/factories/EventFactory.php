@@ -12,7 +12,7 @@ class EventFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->words(3, true) . ' Competition',
+            'name' => fake()->words(3, true).' Competition',
             'description' => fake()->paragraph(),
             'venue' => fake()->address(),
             'event_date' => fake()->dateTimeBetween('now', '+3 months'),

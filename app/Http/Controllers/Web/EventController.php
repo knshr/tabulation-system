@@ -7,7 +7,6 @@ use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
 use App\Services\EventService;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 

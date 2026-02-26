@@ -38,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(UserRepositoryInterface::class, EloquentUserRepository::class);
 
         $this->app->singleton(ReportService::class, function ($app) {
-            $service = new ReportService();
+            $service = new ReportService;
             $service->registerGenerator($app->make(OverallRankingReport::class));
             $service->registerGenerator($app->make(JudgeScoresheetReport::class));
             $service->registerGenerator($app->make(ContestantDetailReport::class));
@@ -46,6 +46,7 @@ class AppServiceProvider extends ServiceProvider
             $service->registerGenerator($app->make(ScoreComparisonReport::class));
             $service->registerGenerator($app->make(EventSummaryReport::class));
             $service->registerGenerator($app->make(AuditLogReport::class));
+
             return $service;
         });
     }

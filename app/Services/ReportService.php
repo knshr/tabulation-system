@@ -17,7 +17,7 @@ class ReportService
 
     public function generate(string $reportName, Event $event, array $options = []): array
     {
-        if (!isset($this->generators[$reportName])) {
+        if (! isset($this->generators[$reportName])) {
             throw new \InvalidArgumentException("Unknown report type: {$reportName}");
         }
 

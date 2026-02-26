@@ -22,6 +22,7 @@ class EloquentCriteriaRepository implements CriteriaRepositoryInterface
     {
         $criteria = Criteria::findOrFail($id);
         $criteria->update($data);
+
         return $criteria->fresh();
     }
 

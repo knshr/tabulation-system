@@ -26,6 +26,7 @@ class UserService
     public function createUser(array $data): User
     {
         $data['password'] = Hash::make($data['password']);
+
         return $this->userRepo->create($data);
     }
 
@@ -34,6 +35,7 @@ class UserService
         if (isset($data['password'])) {
             $data['password'] = Hash::make($data['password']);
         }
+
         return $this->userRepo->update($id, $data);
     }
 

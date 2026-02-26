@@ -8,7 +8,7 @@ use App\Repositories\Contracts\ScoreRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Arr;
 
-class EloquentScoreRepository implements ScoreRepositoryInterface, ScoreQueryInterface
+class EloquentScoreRepository implements ScoreQueryInterface, ScoreRepositoryInterface
 {
     public function save(array $data): Score
     {
@@ -22,6 +22,7 @@ class EloquentScoreRepository implements ScoreRepositoryInterface, ScoreQueryInt
     {
         $score = Score::findOrFail($id);
         $score->update($data);
+
         return $score->fresh();
     }
 
