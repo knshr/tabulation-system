@@ -1,4 +1,5 @@
 # .github/workflows/enforce-branch-policy.yml
+
 name: Enforce Branch Policy
 
 on:
@@ -10,11 +11,16 @@ jobs:
   check-source-branch:
     runs-on: ubuntu-latest
     steps:
-      - name: Check PR source branch
+      - name: Only allow PRs from development
         run: |
           if [ "${{ github.head_ref }}" != "development" ]; then
-            echo "❌ PRs to main are only allowed from the 'development' branch."
-            echo "Source branch was: ${{ github.head_ref }}"
+            echo "❌ Only development branch can PR into main"
             exit 1
           fi
-          echo "✅ Source branch is development. Proceeding."
+          echo "✅ OK"
+```
+
+Then go back to your `main` branch protection rule and add:
+```
+✅ Require status checks to pass before merging
+   → search and add: check-source-branch
