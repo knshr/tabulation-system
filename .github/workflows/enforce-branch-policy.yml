@@ -1,0 +1,20 @@
+# .github/workflows/enforce-branch-policy.yml
+name: Enforce Branch Policy
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-source-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR source branch
+        run: |
+          if [ "${{ github.head_ref }}" != "development" ]; then
+            echo "❌ PRs to main are only allowed from the 'development' branch."
+            echo "Source branch was: ${{ github.head_ref }}"
+            exit 1
+          fi
+          echo "✅ Source branch is development. Proceeding."
